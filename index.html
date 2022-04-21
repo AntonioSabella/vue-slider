@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Vue Slider</title>
+</head>
+<body>
+    <!-- MILESTONE 1 -- costruito Markup statico -->
+    <div id="app">
+        <div class="container">
+            <img :src="places[counter].image">
+            <div class="container_text">
+                <h2 class="title">{{places[counter].title}}</h2>
+                <!-- /.title -->
+                <p class="text">{{places[counter].text}}</p>
+                <!-- /.text -->
+            </div>
+            <!-- /.container_text -->
+        </div>
+        <!-- /.container -->
+        <div id="slider_images">
+            <button id="up" @click="slideUp"><i class="fas fa-chevron-up"></i></button>
+            <!-- /.button#up -->
+            <div v-for="(place, index) in places" class="thumb">
+               <img v-bind:src="place.image" v-if="counter == index" class="active"> 
+               <img v-bind:src="place.image" v-else>
+            </div>
+            <!-- /.thumb -->
+            <button id="down" @click="slideDown"><i class="fas fa-chevron-down"></i></button>
+            <!-- /#down -->
+        </div>
+        <!-- /#slider_images -->
+    </div>
+    <!-- /#app -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
